@@ -1,5 +1,5 @@
 # Hako::EnvProviders::Parameterstore
-Provide variables from [rcredstash](https://github.com/adorechic/parameterstore) to [hako](https://github.com/eagletmt/hako)
+Provide variables from [AWS Parameter Store](http://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-paramstore.html) to [hako](https://github.com/eagletmt/hako)
 
 [![Coverage Status](https://coveralls.io/repos/github/moaikids/hako-parameterstore/badge.svg)](https://coveralls.io/github/moaikids/hako-parameterstore)
 
