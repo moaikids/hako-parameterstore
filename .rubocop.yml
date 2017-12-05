@@ -1,0 +1,17 @@
+inherit_from: .rubocop_todo.yml
+
+Style/GuardClause:
+  Enabled: false
+
+Style/HashSyntax:
+  Exclude:
+    - 'Rakefile'
+
+Style/IfUnlessModifier:
+  Enabled: false
+
+Style/SignalException:
+  Enabled: false
+
+Style/TrailingCommaInLiteral:
+  Enabled: false
