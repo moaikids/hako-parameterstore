@@ -53,10 +53,15 @@ module Hako
       # @param [String] key
       # @return [String]
       def get_value_from_parameterstore(key)
-        resp = @client.get_parameter({name: key , with_decryption: true})
-        if resp.parameter
-          resp.parameter.value
+        val = nil
+        begin
+          resp = @client.get_parameter({name: key , with_decryption: true})
+          if resp.parameter
+            val = resp.parameter.value
+          end
+        rescure
         end
+        val
       end
     end
   end
