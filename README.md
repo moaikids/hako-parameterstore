@@ -1,16 +1,14 @@
-# Hako::EnvProviders::Rcredstash
-Provide variables from [rcredstash](https://github.com/adorechic/rcredstash) to [hako](https://github.com/eagletmt/hako)
+# Hako::EnvProviders::Parameterstore
+Provide variables from [AWS Parameter Store](http://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-paramstore.html) to [hako](https://github.com/eagletmt/hako)
 
-[![Coverage Status](https://coveralls.io/repos/github/moaikids/hako-rcredstash/badge.svg)](https://coveralls.io/github/moaikids/hako-rcredstash)
-
-[![codebeat badge](https://codebeat.co/badges/404c9088-e104-4f13-b6de-7d0ebe8e5d81)](https://codebeat.co/projects/github-com-moaikids-hako-rcredstash-master)
+[![Coverage Status](https://coveralls.io/repos/github/moaikids/hako-parameterstore/badge.svg)](https://coveralls.io/github/moaikids/hako-parameterstore)
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'hako-rcredstash'
+gem 'hako-parameterstore'
 ```
 
 And then execute:
@@ -19,16 +17,15 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install hako-rcredstash
+    $ gem install hako-parameterstore
 
 ## Usage
 
-1. Put encrypted value using rcredstash
+1. Put encrypted value using AWS ParameterStore
 
 ```
-$ rcredstash put encrypted.some_password 
-secret value> veryverysecret
-$ rcredstash get encrypted.some_password 
+$ aws ssm put-parameter --name encrypted.some_password  --value veryverysecret --type SecureString
+$ aws ssm get-parameter --name encrypted.some_password  --with-decryption
 veryverysecret
 ```
 
@@ -36,7 +33,7 @@ veryverysecret
 ```
   env:
     $providers:
-      - type: rcredstash
+      - type: parameterstore
     SOME_PASSWORD: ‘#{encrypted.some_password}'
 ```
 
