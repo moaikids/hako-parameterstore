@@ -59,7 +59,7 @@ module Hako
           if resp.parameter
             val = resp.parameter.value
           end
-        rescure
+        rescue
         end
         val
       end
